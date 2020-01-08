@@ -3,6 +3,7 @@ package com.internetitem.logback.elasticsearch;
 import ch.qos.logback.core.Context;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.internetitem.logback.elasticsearch.config.ElasticsearchProperties;
 import com.internetitem.logback.elasticsearch.config.HttpRequestHeaders;
 import com.internetitem.logback.elasticsearch.config.Property;
@@ -59,7 +60,8 @@ public abstract class AbstractElasticsearchPublisher<T> implements Runnable {
 
 		this.outputAggregator = configureOutputAggregator(settings, errorReporter, headers);
 
-		this.jf = new JsonFactory();
+		final ObjectMapper objectMapper = new ObjectMapper();
+		this.jf = objectMapper.getFactory();
 		this.jf.setRootValueSeparator(null);
 		this.jsonGenerator = jf.createGenerator(outputAggregator);
 

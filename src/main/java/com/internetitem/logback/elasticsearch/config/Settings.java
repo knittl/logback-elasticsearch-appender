@@ -23,6 +23,9 @@ public class Settings {
 	private int maxQueueSize = 100 * 1024 * 1024;
 	private Authentication authentication;
 	private int maxMessageSize = -1;
+	private boolean includeStructuredArguments;
+	private boolean includeNonStructuredArguments;
+	private String nonStructuredArgumentsFieldPrefix;
 
 	public String getIndex() {
 		return index;
@@ -161,5 +164,29 @@ public class Settings {
 
 	public void setMaxMessageSize(int maxMessageSize) {
 		this.maxMessageSize = maxMessageSize;
+	}
+
+	public boolean isIncludeStructuredArguments() {
+		return includeStructuredArguments;
+	}
+
+	public void setIncludeStructuredArguments(final boolean includeStructuredArguments) {
+		this.includeStructuredArguments = includeStructuredArguments;
+	}
+
+	public boolean isIncludeNonStructuredArguments() {
+		return includeNonStructuredArguments;
+	}
+
+	public void setIncludeNonStructuredArguments(final boolean includeNonStructuredArguments) {
+		this.includeNonStructuredArguments = includeNonStructuredArguments;
+	}
+
+	public String getNonStructuredArgumentsFieldPrefix() {
+		return nonStructuredArgumentsFieldPrefix;
+	}
+
+	public void setNonStructuredArgumentsFieldPrefix(String nonStructuredArgumentsFieldPrefix) {
+		this.nonStructuredArgumentsFieldPrefix = nonStructuredArgumentsFieldPrefix;
 	}
 }

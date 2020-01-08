@@ -186,6 +186,9 @@ public class ElasticsearchAppenderTest {
         int aSleepTime = 10000;
         int readTimeout = 10000;
         int connectTimeout = 5000;
+        boolean includeStructuredArguments = true;
+        boolean includeNonStructuredArguments = false;
+        String nonStructuredArgumentsFieldPrefix = "prefix";
 
         appender.setIncludeCallerData(includeCallerData);
         appender.setSleepTime(aSleepTime);
@@ -202,6 +205,9 @@ public class ElasticsearchAppenderTest {
         appender.setConnectTimeout(connectTimeout);
         appender.setRawJsonMessage(rawJsonMessage);
         appender.setIncludeMdc(includeMdc);
+        appender.setIncludeStructuredArguments(includeStructuredArguments);
+        appender.setIncludeNonStructuredArguments(includeNonStructuredArguments);
+        appender.setNonStructuredArgumentsFieldPrefix(nonStructuredArgumentsFieldPrefix);
 
         verify(settings, times(1)).setReadTimeout(readTimeout);
         verify(settings, times(1)).setSleepTime(aSleepTime);
@@ -218,6 +224,9 @@ public class ElasticsearchAppenderTest {
         verify(settings, times(1)).setConnectTimeout(connectTimeout);
         verify(settings, times(1)).setRawJsonMessage(rawJsonMessage);
         verify(settings, times(1)).setIncludeMdc(includeMdc);
+        verify(settings, times(1)).setIncludeStructuredArguments(includeStructuredArguments);
+        verify(settings, times(1)).setIncludeNonStructuredArguments(includeNonStructuredArguments);
+        verify(settings, times(1)).setNonStructuredArgumentsFieldPrefix(nonStructuredArgumentsFieldPrefix);
     }
 
 

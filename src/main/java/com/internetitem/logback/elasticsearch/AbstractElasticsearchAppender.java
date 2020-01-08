@@ -138,4 +138,16 @@ public abstract class AbstractElasticsearchAppender<T> extends UnsynchronizedApp
     public void setMaxMessageSize(int maxMessageSize) {
     	settings.setMaxMessageSize(maxMessageSize);
 	}
+
+	public void setIncludeStructuredArguments(boolean includeStructuredArguments) {
+		settings.setIncludeStructuredArguments(includeStructuredArguments);
+	}
+
+	public void setIncludeNonStructuredArguments(boolean includeNonStructuredArguments) {
+		settings.setIncludeNonStructuredArguments(includeNonStructuredArguments);
+	}
+
+	public void setNonStructuredArgumentsFieldPrefix(String nonStructuredArgumentsFieldPrefix) {
+		settings.setNonStructuredArgumentsFieldPrefix(nonStructuredArgumentsFieldPrefix);
+	}
 }
